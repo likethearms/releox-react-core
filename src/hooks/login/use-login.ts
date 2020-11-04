@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import ReleoxConfigContext from '../../config/ReleoxConfigContext';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
+import translationNamespaces from '../../translation-namespaces';
 
 interface UseLoginHook {
   links: ReleoxLinkObject[];
@@ -31,7 +32,7 @@ export default (
 ): UseLoginHook => {
   const dispatch = useDispatch();
   const [config] = useContext(ReleoxConfigContext);
-  const { t } = useTranslation('LoginScene');
+  const { t } = useTranslation(translationNamespaces.login);
   const [links, setLinks] = useState<ReleoxLinkObject[]>([]);
   const isLoading = useSelector(isLoadingSelector);
 
