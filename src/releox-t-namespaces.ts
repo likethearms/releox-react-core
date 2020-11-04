@@ -4,4 +4,6 @@ export default {
   login: 'LoginScene',
   forgotPassword: 'ForgotPasswordScene',
   forgotPasswordSuccess: 'ForgotPasswordSuccessScene',
+  confirm: 'ConfirmScene',
+  authError: 'AuthenticationErrorScene',
 };

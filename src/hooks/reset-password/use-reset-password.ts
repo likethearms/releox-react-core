@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import translationNamespaces from '../../translation-namespaces';
+import translationNamespaces from '../../releox-t-namespaces';
 
 interface Body {
   password: string;
@@ -44,14 +44,14 @@ export default (
    */
   useEffect(() => {
     // Find token from from search query
-    const matches = location.search.match(/access_token=[a-zA-Z0-9]*/);
+    const match = location.search.match(/access_token=[a-zA-Z0-9]*/);
 
-    if (!matches?.length) {
+    if (!match) {
       // Set error message if not match found
       setErrorMessage(t('missingToken'));
     } else {
       // Get token form string
-      const token = matches[0].split('=')[1];
+      const token = match[0].split('=')[1];
 
       // Set it to state
       setAccessToken(token);

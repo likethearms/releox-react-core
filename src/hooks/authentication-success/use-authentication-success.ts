@@ -2,19 +2,18 @@ import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ReleoxConfigContext from '../../config/ReleoxConfigContext';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
-import translationNamespaces from '../../translation-namespaces';
 
 interface ForgotPasswordSuccess {
   message: string;
   links: ReleoxLinkObject[];
 }
 
-export default (): ForgotPasswordSuccess => {
+export default (tNamespace: string): ForgotPasswordSuccess => {
   const [links, setLinks] = useState<ReleoxLinkObject[]>([]);
 
   const [config] = useContext(ReleoxConfigContext);
 
-  const { t } = useTranslation(translationNamespaces.forgotPasswordSuccess);
+  const { t } = useTranslation(tNamespace);
 
   useEffect(() => {
     setLinks([

@@ -2,8 +2,8 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import ReleoxConfigContext from '../../config/ReleoxConfigContext';
+import translationNamespaces from '../../releox-t-namespaces';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
-import translationNamespaces from '../../translation-namespaces';
 
 interface UseLoginHook {
   links: ReleoxLinkObject[];
