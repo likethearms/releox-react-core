@@ -24,6 +24,7 @@ export interface ReleoxConfig {
 
   routes: {
     home: string;
+    login: string;
     register: string;
     forgotPassword: string;
   };
@@ -39,6 +40,7 @@ export const releoxInitialContext: ReleoxConfig = {
 
   routes: {
     home: '/',
+    login: '/login',
     register: '/register',
     forgotPassword: '/forgot-password',
   },
