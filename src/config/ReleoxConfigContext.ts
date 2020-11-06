@@ -19,6 +19,7 @@ export interface ReleoxConfig {
     urls: {
       login: string;
       logout: string;
+      validateToken: string;
     };
   };
 
@@ -49,6 +50,7 @@ export const releoxInitialContext: ReleoxConfig = {
     urls: {
       login: `${window.API_ENDPOINT}/Members/login`,
       logout: `${window.API_ENDPOINT}/Members/logout`,
+      validateToken: `${window.API_ENDPOINT}/Members/:userId?access_token=:accessToken`,
     },
   },
 };

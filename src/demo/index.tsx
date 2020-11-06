@@ -39,15 +39,27 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(reduxThunk, routerMiddleware(history)))
 );
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ReleoxConfig>
-        <Router history={history}>
-          <Routes />
-        </Router>
-      </ReleoxConfig>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const render = (Component: typeof Routes) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <ReleoxConfig>
+          <Router history={history}>
+            <Component />
+          </Router>
+        </ReleoxConfig>
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+};
+
+render(Routes);
+
+/* eslint-disable global-require,@typescript-eslint/no-var-requires */
+if (module.hot) {
+  module.hot.accept('./Routes', () => {
+    const NextApp = require('./Routes').default;
+    render(NextApp);
+  });
+}

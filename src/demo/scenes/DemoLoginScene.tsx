@@ -1,12 +1,14 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import guestMiddleware from '../../hoc/guest-middleware';
 import useLogin from '../../hooks/login/use-login';
 import ReleoxAuthenticationsAction from '../../store/releox-authentication/ReleoxAuthenticationsAction';
 import ReleoxAuthenticationsSelector from '../../store/releox-authentication/ReleoxAuthenticationsSelector';
 import Input from '../components/Input';
+import Loading from '../components/Loading';
 
-export default (): JSX.Element => {
+const DemoLoginScene = (): JSX.Element => {
   const {
     onSubmit,
     initFormValues,
@@ -49,3 +51,5 @@ export default (): JSX.Element => {
     </Formik>
   );
 };
+
+export default guestMiddleware(DemoLoginScene, Loading);

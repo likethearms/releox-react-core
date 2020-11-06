@@ -5,6 +5,7 @@ export default class ReleoxAuthenticationsReducer {
   private static initState = {
     isLoading: false,
     error: '',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     user: {} as any,
   };
 
