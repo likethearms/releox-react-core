@@ -1,28 +1,32 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { ObjectSchema } from 'yup';
 import ReleoxConfigContext from '../../config/ReleoxConfigContext';
 import translationNamespaces from '../../releox-t-namespaces';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
+import {
+  EmailLoginValidation,
+  UsernameLoginValidation,
+} from '../../validation/LoginValidationSchema';
+import LoginBody from './LoginBody';
 
 interface UseLoginHook {
   links: ReleoxLinkObject[];
   isLoading: boolean;
   initFormValues: LoginBody;
-  onSubmit: OnSubmit;
+  emailFieldName: string;
+  emailFieldType: string;
+  validationSchema: ObjectSchema;
+  onSubmit: (body: LoginBody) => void;
+  translations: {
+    email: string;
+    password: string;
+    submit: string;
+  };
 }
 
-type LoginBody =
-  | {
-      email: string;
-      password: string;
-    }
-  | {
-      username: string;
-      password: string;
-    };
-
-type OnSubmit = (body: LoginBody) => void;
+type OnSubmit = (url: string, body: LoginBody) => void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type LoadingSelector = (state: any) => boolean;
 
@@ -36,11 +40,16 @@ export default (
   const [links, setLinks] = useState<ReleoxLinkObject[]>([]);
   const isLoading = useSelector(isLoadingSelector);
 
+  const { emailFieldName } = config.scenes.login;
+  const emailFieldType = emailFieldName === 'email' ? 'email' : 'text';
+  const validationSchema =
+    emailFieldName === 'email' ? EmailLoginValidation : UsernameLoginValidation;
+
   const handleOnSubmit = useCallback(
     (body: LoginBody): void => {
-      dispatch(onSubmit(body));
+      dispatch(onSubmit(config.api.urls.login, body));
     },
-    [onSubmit, dispatch]
+    [onSubmit, dispatch, config.api.urls.login]
   );
 
   useEffect(() => {
@@ -78,6 +87,14 @@ export default (
     links,
     initFormValues,
     isLoading,
+    emailFieldName,
+    emailFieldType,
+    validationSchema,
     onSubmit: handleOnSubmit,
+    translations: {
+      email: t(`${translationNamespaces.common}:email`),
+      password: t(`${translationNamespaces.common}:password`),
+      submit: t(`submit`),
+    },
   };
 };

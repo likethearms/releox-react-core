@@ -1,1 +1,1 @@
-window.API_ENDPOINT = 'http://localhost:3000';
+window.API_ENDPOINT = 'http://localhost:3001/api';

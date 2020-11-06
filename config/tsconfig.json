@@ -7,6 +7,7 @@
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
+    "removeComments": true,
     "jsx": "react"
   },
   "include": ["../src"],
@@ -16,6 +17,7 @@
     "../src/stories/*",
     "../src/cra-index.tsx",
     "../src/testing-cra/*",
-    "../src/setupTests.ts"
+    "../src/setupTests.ts",
+    "../src/demo"
   ]
 }

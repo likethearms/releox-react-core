@@ -17,7 +17,7 @@ interface StoreHelper<T> {
   wrapper: StoreWrapper;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/ban-types
 export const getStoreHelpers = <T extends {}>(state: T): StoreHelper<T> => {
   const mockStore = configureMockStore<T>();
   const store = mockStore(state);
