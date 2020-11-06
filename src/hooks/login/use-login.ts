@@ -2,9 +2,9 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { ObjectSchema } from 'yup';
-import ReleoxConfigContext from '../../config/ReleoxConfigContext';
 import translationNamespaces from '../../releox-t-namespaces';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
+import ReleoxConfigContext from '../../utils/ReleoxConfigContext';
 import {
   EmailLoginValidation,
   UsernameLoginValidation,

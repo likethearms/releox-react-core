@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ReleoxConfigContext from '../../config/ReleoxConfigContext';
 import translationNamespaces from '../../releox-t-namespaces';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
+import ReleoxConfigContext from '../../utils/ReleoxConfigContext';
 
 interface Forgot {
   links: ReleoxLinkObject[];

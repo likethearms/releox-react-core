@@ -18,7 +18,7 @@ export default (onConfirm: OnConfirm): ConfirmScene => {
 
   useEffect(() => {
     const accessTokenMatch = location.search.match(/access_token=[a-zA-Z0-9]*/);
-    const uidMatch = location.search.match(/uid=[a-zA-Z0-9]**/);
+    const uidMatch = location.search.match(/uid=[a-zA-Z0-9]*/);
 
     if (accessTokenMatch && uidMatch) {
       const token = accessTokenMatch[0].split('=')[0];

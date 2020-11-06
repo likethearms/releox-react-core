@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ReleoxConfigContext from '../../config/ReleoxConfigContext';
 import ReleoxLinkObject from '../../ReleoxLinkObject';
+import ReleoxConfigContext from '../../utils/ReleoxConfigContext';
 
 interface ForgotPasswordSuccess {
   message: string;

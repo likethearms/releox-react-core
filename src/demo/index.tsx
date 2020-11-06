@@ -10,10 +10,10 @@ import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
-import ReleoxConfig from '../config/ReleoxConfig';
 import { RELEOX_STORE_NAME } from '../Globals';
 import ReleoxAuthenticationsReducer from '../store/releox-authentication/ReleoxAuthenticationsReducer';
 import translations from '../translations';
+import ReleoxConfig from '../utils/ReleoxConfig';
 import Routes from './Routes';
 
 const resources = translations;

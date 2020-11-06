@@ -8,8 +8,8 @@ import React, {
 } from 'react';
 import { useDispatch } from 'react-redux';
 import { push } from 'react-router-redux';
-import ReleoxConfigContext from '../config/ReleoxConfigContext';
 import { TOKEN_STORAGE_KEY, USER_ID_STORAGE_KEY } from '../Globals';
+import ReleoxConfigContext from '../utils/ReleoxConfigContext';
 
 export default (
   WrapperComponent: ElementType,

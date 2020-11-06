@@ -1,4 +1,4 @@
-import Yup from '../config/YupI18n';
+import Yup from '../utils/YupI18n';
 
 export const EmailLoginValidation = Yup.object().shape({
   email: Yup.string().email().required(),
